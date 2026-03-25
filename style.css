@@ -873,6 +873,13 @@ section {
         padding: 1.6rem 3.5rem;
     }
 
+    /* ปุ่มใน Hero Slider เล็กลงเพื่อไม่ให้บังรูป */
+    .btn-box-hero .btn {
+        font-size: 1.4rem;
+        padding: 0.9rem 2rem;
+        border-radius: 8px;
+    }
+
     /* ปุ่ม nav ติดต่อจ้างงาน */
     .nav-contact-btn {
         font-size: 1.8rem;
