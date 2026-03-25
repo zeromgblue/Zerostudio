@@ -257,17 +257,18 @@ section {
 
 .hero-slider {
     width: 100%;
-    height: 65vh; /* สเกลเดิม ดูเนี๊ยบ */
+    height: auto; /* สูงตามกรอบรูป */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 6rem;
+    padding: 5rem 0 8rem; /* ระยะห่างบน-ล่างสำหรับ dot */
 }
 
 .carousel-container {
-    width: 70%; /* สเกลเดิม */
-    height: 100%;
+    width: 70%;
+    aspect-ratio: 21 / 9; /* ตรงกับสัดส่วนรูปจริง */
+    height: auto;
     position: relative;
     overflow: hidden;
     border-radius: var(--border-radius);
@@ -275,14 +276,14 @@ section {
 }
 
 .carousel-inner {
-    display: flex; /* จัดเรียงสไลด์เป็นแนวนอน */
-    width: 200%; /* มี 2 สไลด์ (100% * 2) */
+    display: flex;
+    width: 200%;
     height: 100%;
-    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1); /* แอนิเมชันเลื่อนแบบนุ่มนวลพรีเมียม */
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .carousel-slide {
-    width: 50%; /* สไลด์ละ 50% ของความกว้างทั้งหมด (ซึ่งเท่ากับ 100% ของคอนเทนเนอร์) */
+    width: 50%;
     height: 100%;
     position: relative;
     flex-shrink: 0;
@@ -291,8 +292,7 @@ section {
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* เห็นรูปเต็มภาพ ไม่ถูกตัด */
-    background-color: #040814; /* พื้นหลังมืดรอบรูป */
+    object-fit: cover; /* ratio ตรงกันแล้ว ใช้ cover เต็มกรอบได้เลย */
 }
 
 /* ลบเลเยอร์มืดออกเพื่อให้รูปภาพสว่างชัดเจน */
@@ -817,12 +817,11 @@ section {
     }
 
     .hero-slider {
-        height: 38vh; /* เตี้ยลง ยาวขึ้น พอดีกับภาพ */
-        padding-bottom: 4rem;
+        padding: 3rem 0 6rem; /* เอา height:auto จาก aspect-ratio ของรูป */
     }
 
     .carousel-container {
-        width: 90%; /* ขยายความกว้างรูปภาพในมือถือเพื่อให้เห็นรายละเอียดชัดขึ้น */
+        width: 95%; /* ยาวขึ้นพอดีกับภาพในมือถือ */
     }
 
     .slider-arrows {
