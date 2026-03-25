@@ -58,62 +58,44 @@ window.addEventListener('scroll', revealOnScroll);
 revealOnScroll(); // Trigger once on load
 
 // Image Carousel Logic (with Prev/Next arrows)
-const carouselInner = document.querySelector('.carousel-inner');
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.carousel-dot');
-const prevBtn = document.querySelector('#prev-btn');
-const nextBtn = document.querySelector('#next-btn');
-let currentSlide = 0;
-let slideInterval;
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselInner = document.querySelector('.carousel-inner');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('#prev-btn');
+    const nextBtn = document.querySelector('#next-btn');
+    let currentSlide = 0;
+    let slideInterval;
 
-const showSlide = (n) => {
-    currentSlide = (n + slides.length) % slides.length;
-    
-    // เลื่อน carousel-inner (Slide Animation)
-    // 50% ต่อสไลด์ เพราะมี 2 สไลด์ (carousel-inner กว้าง 200%)
-    carouselInner.style.transform = `translateX(-${currentSlide * 50}%)`;
-    
-    // Update dots
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentSlide].classList.add('active');
-}
+    const showSlide = (n) => {
+        currentSlide = (n + slides.length) % slides.length;
+        carouselInner.style.transform = `translateX(-${currentSlide * 50}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentSlide].classList.add('active');
+    };
 
-const nextSlide = () => {
-    showSlide(currentSlide + 1);
-}
+    const nextSlide = () => showSlide(currentSlide + 1);
+    const prevSlide = () => showSlide(currentSlide - 1);
 
-const prevSlide = () => {
-    showSlide(currentSlide - 1);
-}
+    const startSlideShow = () => {
+        slideInterval = setInterval(nextSlide, 3500); // เลื่อนทุก 3.5 วินาที
+    };
 
-// Start auto sliding
-const startSlideShow = () => {
-    slideInterval = setInterval(nextSlide, 5000); // 5 seconds for larger slides
-}
+    const resetSlideShow = () => {
+        clearInterval(slideInterval);
+        startSlideShow();
+    };
 
-const resetSlideShow = () => {
-    clearInterval(slideInterval);
+    // เริ่ม auto-play ทันทีเมื่อเข้าเว็บ
+    showSlide(0);
     startSlideShow();
-}
 
-startSlideShow();
+    if (prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => { nextSlide(); resetSlideShow(); });
+        prevBtn.addEventListener('click', () => { prevSlide(); resetSlideShow(); });
+    }
 
-if (prevBtn && nextBtn) {
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetSlideShow();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetSlideShow();
-    });
-}
-
-// Add click event to dots
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
-        resetSlideShow();
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => { showSlide(index); resetSlideShow(); });
     });
 });
