@@ -34,7 +34,7 @@ body {
 }
 
 html {
-    font-size: 50%; /* สเกลแบบมินิมอลขั้นสุด ดูเนี๊ยบและแพง */
+    font-size: 43%; /* ลดสเกลลงเพื่อให้พอดีกับหน้าจอทุกขนาด */
 }
 
 /* Animated Gradient Background like ZPRISE */
@@ -508,64 +508,62 @@ section {
     justify-content: center;
 }
 
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    gap: 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
 .portfolio-box {
     position: relative;
     overflow: hidden;
-    display: flex;
-    max-width: 800px; /* ลดความกว้างลงเล็กน้อยให้ดูหรูขึ้น */
     width: 100%;
     aspect-ratio: 16/9;
-    padding: 0; /* ลบ padding ออกเพื่อให้รูปภาพชนขอบกรอบ */
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding: 0;
 }
 
 .portfolio-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ขยายให้เต็มพอดีกล่อง */
-    border-radius: var(--border-radius);
-    transition: 0.6s ease;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    transition: transform 0.6s ease;
 }
 
-.portfolio-box:hover img {
+.portfolio-card:hover .portfolio-box img {
     transform: scale(1.05);
 }
 
-.portfolio-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.portfolio-info {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(2, 6, 15, 0.9) 10%, rgba(2, 6, 15, 0.1) 100%);
+    padding: 3rem 4rem;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 4rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s ease;
-    border-radius: var(--border-radius);
+    align-items: flex-start;
+    gap: 1.2rem;
+    border-top: 1px solid rgba(0, 225, 255, 0.2);
 }
 
-.portfolio-box:hover .portfolio-layer {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.portfolio-layer h4 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+.portfolio-info h4 {
+    font-size: 2.8rem;
     color: var(--main-color);
+    font-weight: 600;
 }
 
-.portfolio-layer p {
+.portfolio-info p {
     font-size: 1.8rem;
-    margin-bottom: 3rem;
-    color: #eee;
-    line-height: 1.7;
+    color: #ccc;
+    line-height: 1.6;
 }
 
-.portfolio-layer a {
+.portfolio-info a {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
@@ -577,9 +575,10 @@ section {
     width: fit-content;
     transition: 0.3s;
     font-weight: 600;
+    margin-top: 0.5rem;
 }
 
-.portfolio-layer a:hover {
+.portfolio-info a:hover {
     box-shadow: var(--glow);
     transform: scale(1.05);
 }
@@ -729,7 +728,7 @@ section {
 /* Responsive Design */
 @media (max-width: 1200px) {
     html {
-        font-size: 55%;
+        font-size: 47%;
     }
     .slide-content h1 {
         font-size: 6.5rem;
@@ -764,7 +763,7 @@ section {
 
 @media (max-width: 768px) {
     html {
-        font-size: 45%; /* ย่อสเกลรวมลงอีกสำหรับจอมือถือ */
+        font-size: 32%; /* ย่อสเกลสำหรับมือถือ */
     }
 
     .header {
@@ -849,7 +848,7 @@ section {
 
 @media (max-width: 480px) {
     html {
-        font-size: 40%; /* ย่อขนาดจิ๋วสุดสำหรับมือถือหน้าจอเล็ก (Smart Scaling) */
+        font-size: 26%; /* ย่อระดับมินิมอลสำหรับมือถือจอเล็ก */
     }
 
     .slide-content h1 {
