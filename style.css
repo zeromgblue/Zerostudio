@@ -291,7 +291,8 @@ section {
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* เห็นรูปเต็มภาพ ไม่ถูกตัด */
+    background-color: #040814; /* พื้นหลังมืดรอบรูป */
 }
 
 /* ลบเลเยอร์มืดออกเพื่อให้รูปภาพสว่างชัดเจน */
