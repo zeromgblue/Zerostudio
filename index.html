@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroStudio | รับทำเว็บไซต์</title>
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <!-- Navbar -->
+    <header class="header">
+        <a href="#" class="logo">Zero<span>Studio</span></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">หน้าแรก</a>
+            <a href="#services">บริการ</a>
+            <a href="#pricing">ราคา</a>
+            <a href="#portfolio">ผลงาน</a>
+            <a href="#about">เกี่ยวกับฉัน</a>
+        </nav>
+        <div class="nav-contact-container">
+            <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
+                class="nav-contact-btn">ติดต่อจ้างงาน</a>
+        </div>
+    </header>
+
+    <!-- Large Hero Slider Section -->
+    <section class="home" id="home">
+        <div class="hero-slider">
+            <div class="carousel-container">
+                <div class="carousel-inner">
+                    <div class="carousel-slide">
+                        <img src="./img/hero1.png" alt="รับทำหน้าเว็บไซต์ทุกรูปแบบ เริ่มต้น 500 บาท">
+                        <div class="slide-content">
+                            <div class="btn-box-hero">
+                                <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
+                                    class="btn">ติดต่อทันที</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="./img/hero2.png" alt="ราคาดีคุ้มค่าแน่นอน ZeroStudio">
+                        <div class="slide-content">
+                            <div class="btn-box-hero">
+                                <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
+                                    class="btn">สอบถามรายละเอียด</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-arrows">
+                <button id="prev-btn" aria-label="Previous Slide"><i class='bx bx-chevron-left'></i></button>
+                <button id="next-btn" aria-label="Next Slide"><i class='bx bx-chevron-right'></i></button>
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-dot active" aria-label="Slide 1"></button>
+                <button class="carousel-dot" aria-label="Slide 2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="heading">บริการ<span>หลัก</span></h2>
+        <div class="services-container">
+            <div class="service-box glass-effect reveal">
+                <i class='bx bx-code-alt'></i>
+                <h3>รับทำเว็บทั่วไป</h3>
+                <p>สร้างเว็บไซต์ธุรกิจ, เว็บบริษัท, เว็บไซต์ขายของ ด้วยโค้ดที่สะอาดและเป็นระเบียบ ทำงานได้อย่างรวดเร็ว
+                </p>
+            </div>
+            <div class="service-box glass-effect reveal">
+                <i class='bx bx-palette'></i>
+                <h3>UI สวยงามทันสมัย</h3>
+                <p>ออกแบบหน้าตาเว็บไซต์ (User Interface) ให้ดูพรีเมียม เข้าใจง่าย และดึงดูดผู้ใช้งานได้ดียิ่งขึ้น</p>
+            </div>
+            <div class="service-box glass-effect reveal">
+                <i class='bx bx-laptop'></i>
+                <h3>รับทำหน้าเว็บ</h3>
+                <p>สร้างโครงสร้างหน้าเว็บ (Front-end) แปลงจากแบบดีไซน์ด้วยเครื่องมือต่างๆ ให้ระบบกลายเป็นเว็บไซต์จริง
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="heading">แพ็คเกจ<span>ราคา</span></h2>
+        <div class="pricing-container reveal">
+            <div class="pricing-card glass-effect">
+                <h3>เริ่มต้นเพียง</h3>
+                <h2>500 <span>บาท</span></h2>
+                <p class="price-note">*ราคาขึ้นอยู่กับรายละเอียดและความยากง่ายของงาน</p>
+                <ul class="features">
+                    <li><i class='bx bx-check-circle'></i> รูปแบบเว็บไซต์ทันสมัย ดูน่าเชื่อถือ</li>
+                    <li><i class='bx bx-check-circle'></i> รองรับทุกอุปกรณ์</li>
+                    <li><i class='bx bx-check-circle'></i> หน้าเว็บสวย</li>
+                    <li><i class='bx bx-check-circle'></i> เอฟเฟกต์การใช้งานแบบพรีเมียม</li>
+                </ul>
+                <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
+                    class="btn btn-block">ติดต่อสอบถามรายละเอียดผ่าน Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">ผลงาน<span>บางส่วน</span></h2>
+        <div class="portfolio-container reveal">
+            <div class="portfolio-box glass-effect">
+                <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t1.15752-9/655028869_1522970479194740_5529891459135185084_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=znqYzZh_UzkQ7kNvwHgYzKH&_nc_oc=AdpUHuibJspSS7sjc5rmLJ8JfNLGgFE5qqJH6TN3FbSPAyhdjYHfuAWjZrBZ3ofDJNDJLTffEKpXGUg_PH1na8wR&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_ss=7a32e&oh=03_Q7cD4wFDOclCvAs7MepAsuOXeaZREjCf7AaPKrF9E14Og_pxMA&oe=69EB192C"
+                    alt="Portfolio 1">
+                <div class="portfolio-layer">
+                    <h4>ตัวอย่างหน้าเว็บไซต์</h4>
+                    <p>เว็บไซต์สร้างเซอร์ไพรส์ สร้างได้มากกว่า 132 รูปเเบบ</p>
+                    <a href="https://surprise-theta-sepia.vercel.app/"><i class='bx bx-link-external'></i>
+                        ดูเว็บไซต์</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img reveal">
+            <div class="glow-circle">
+                <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t1.15752-9/653737412_26874149278844138_4039863547161145011_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MlNYYHrPcu0Q7kNvwGcIspp&_nc_oc=AdrhNYZy0F91vrkOzH-cDZSti5Ahq0J5SItKLGCjyssB-TqaaD2RK2Hrj9WON3e_s3sES411jqHzijAgbJ7GAyDP&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_ss=7a32e&oh=03_Q7cD4wHaT6lcfENxI_KdjvzrdfqOpoALDYhkRm68zwlLNwd8vA&oe=69EB1161"
+                    alt="Programmer">
+            </div>
+        </div>
+        <div class="about-content glass-effect reveal">
+            <h2 class="heading" style="margin-bottom: 2rem; text-align: left;">เกี่ยวกับ<span>ฉัน</span></h2>
+            <h3>Front-end Developer | อายุ 14 ปี</h3>
+            <p>สวัสดีครับ ผมเป็นเด็กอายุ 14 ที่ชื่นชอบในการเขียนโปรแกรม เเละเขียนเว็บครับ
+                เเละอยากเริ่มหารายได้จากการเขียนเว็บครับ ทักษะสกิลผม ผมเขียนโค้ดได้ 5 ภาษา
+                html , css , JavaScript , Lua , Python
+            </p>
+            <div class="skills">
+                <span class="skill-tag"><i class='bx bxl-html5'></i> HTML</span>
+                <span class="skill-tag"><i class='bx bxl-css3'></i> CSS</span>
+                <span class="skill-tag"><i class='bx bxl-javascript'></i> JavaScript</span>
+                <span class="skill-tag"><i class='bx bxl-lua'></i> Lua</span>
+                <span class="skill-tag"><i class='bx bxl-python'></i> Python</span>
+            </div>
+            <br>
+            <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
+                class="btn">พูดคุยกับผม</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-effect">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by ZeroStudio | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
