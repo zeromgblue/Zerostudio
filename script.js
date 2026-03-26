@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showSlide = (n) => {
         currentSlide = (n + slides.length) % slides.length;
-        carouselInner.style.transform = `translateX(-${currentSlide * 50}%)`;
+        carouselInner.style.transform = `translateX(-${currentSlide * (100 / slides.length)}%)`;
         dots.forEach(dot => dot.classList.remove('active'));
         dots[currentSlide].classList.add('active');
     };
@@ -99,3 +99,44 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.addEventListener('click', () => { showSlide(index); resetSlideShow(); });
     });
 });
+
+// Portfolio Slider Logic (Scroll + Drag)
+const portContainer = document.getElementById('portfolio-scroll-container');
+const portPrev = document.getElementById('port-prev');
+const portNext = document.getElementById('port-next');
+
+if (portContainer) {
+    portNext.addEventListener('click', () => {
+        portContainer.scrollBy({ left: portContainer.offsetWidth / 1.5, behavior: 'smooth' });
+    });
+    portPrev.addEventListener('click', () => {
+        portContainer.scrollBy({ left: -portContainer.offsetWidth / 1.5, behavior: 'smooth' });
+    });
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    portContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - portContainer.offsetLeft;
+        scrollLeft = portContainer.scrollLeft;
+        // ปิด smooth scroll ตอนลากเพื่อให้ตามเมาส์ได้ทัน
+        portContainer.style.scrollBehavior = 'auto'; 
+    });
+    portContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        portContainer.style.scrollBehavior = 'smooth';
+    });
+    portContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        portContainer.style.scrollBehavior = 'smooth';
+    });
+    portContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - portContainer.offsetLeft;
+        const walk = (x - startX) * 2; // ความเร็วในการลาก
+        portContainer.scrollLeft = scrollLeft - walk;
+    });
+}

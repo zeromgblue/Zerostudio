@@ -248,8 +248,8 @@ section {
 
 /* Home / Hero Slider (Large & Impressive) */
 .home {
-    padding: 0;
-    min-height: 100vh;
+    padding: 12rem 0 0; /* ตัด padding ด้านล่างออกเพื่อให้ส่วนบริการขยับขึ้นมาติด */
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,7 +262,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5rem 0 8rem; /* ระยะห่างบน-ล่างสำหรับ dot */
+    padding: 2rem 0 5rem; /* ลดระยะห่างบน-ล่างลงเพื่อให้เนื้อหาอยู่ใกล้กันมากขึ้น */
 }
 
 .carousel-container {
@@ -277,13 +277,13 @@ section {
 
 .carousel-inner {
     display: flex;
-    width: 200%;
+    width: 300%;
     height: 100%;
     transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .carousel-slide {
-    width: 50%;
+    width: 33.333333%;
     height: 100%;
     position: relative;
     flex-shrink: 0;
@@ -396,6 +396,9 @@ section {
 }
 
 /* Services */
+.services {
+    padding-top: 5rem; /* ลดระยะห่างด้านบนลงจาก 10rem เป็น 5rem เพื่อให้ใกล้ hero มากขึ้น */
+}
 .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -503,20 +506,101 @@ section {
 }
 
 /* Portfolio Section */
-.portfolio-container {
+.portfolio-slider-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
+.portfolio-container {
+    display: flex;
+    gap: 3rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 3rem 1rem 5rem;
+    width: 90%;
+    /* Hide Scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    cursor: grab;
+}
+
+.portfolio-container:active {
+    cursor: grabbing;
+}
+
+.portfolio-container::-webkit-scrollbar {
+    display: none;
+}
+
 .portfolio-card {
+    min-width: 380px;
+    width: 380px; /* ปรับลดขนาดลงให้เล็กลงพอดีตา */
+    max-width: 100%;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 800px;
-    width: 100%;
     gap: 0;
     border-radius: var(--border-radius);
     overflow: hidden;
+    transition: 0.4s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), var(--glow);
+}
+
+.portfolio-arrow {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.portfolio-arrow:hover {
+    background: var(--main-color);
+    box-shadow: var(--glow);
+    color: #000;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        min-width: 320px;
+    }
+    .portfolio-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+        top: 30%;
+    }
 }
 
 .portfolio-box {
@@ -817,11 +901,22 @@ section {
     }
 
     .hero-slider {
-        padding: 3rem 0 6rem; /* เอา height:auto จาก aspect-ratio ของรูป */
+        padding: 5rem 0 6rem;
+        height: auto;
     }
 
     .carousel-container {
-        width: 95%; /* ยาวขึ้นพอดีกับภาพในมือถือ */
+        width: 92%;
+        aspect-ratio: auto;
+    }
+
+    .carousel-inner, .carousel-slide {
+        height: auto;
+    }
+
+    .carousel-slide img {
+        height: auto;
+        display: block;
     }
 
     .slider-arrows {
@@ -885,10 +980,11 @@ section {
         padding: 1.2rem 2.4rem;
     }
 
-    /* hero slider เต็มจอในมือถือ */
+    /* hero slider ในมือถือให้เป็นสเกลแบบในรูป */
     .carousel-container {
-        width: 96%; /* ยาวขึ้น พอดีกับภาพ */
-        border-radius: 14px;
+        width: 92%;
+        border-radius: 16px;
+        aspect-ratio: auto;
     }
 
     /* portfolio info ปุ่ม */
@@ -905,12 +1001,14 @@ section {
     }
 
     .hero-slider {
-        height: 32vh; /* เตี้ยลงอีก แต่กว้างขึ้น */
+        height: auto;
+        padding-top: 8rem;
         padding-bottom: 3.5rem;
     }
 
     .carousel-container {
-        width: 98%;
-        border-radius: 12px;
+        width: 92%;
+        border-radius: 16px;
+        aspect-ratio: auto;
     }
 }

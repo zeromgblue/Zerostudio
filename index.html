@@ -58,6 +58,9 @@
                     <div class="carousel-slide">
                         <img src="./img/hero2.png" alt="ราคาดีคุ้มค่าแน่นอน ZeroStudio">
                     </div>
+                    <div class="carousel-slide">
+                        <img src="./img/hero3.png" alt="ZeroStudio สวยงามและรวดเร็ว">
+                    </div>
                 </div>
             </div>
 
@@ -69,6 +72,7 @@
             <div class="carousel-nav">
                 <button class="carousel-dot active" aria-label="Slide 1"></button>
                 <button class="carousel-dot" aria-label="Slide 2"></button>
+                <button class="carousel-dot" aria-label="Slide 3"></button>
             </div>
         </div>
     </section>
@@ -109,7 +113,7 @@
                     <li><i class='bx bx-check-circle'></i> รูปแบบเว็บไซต์ทันสมัย ดูน่าเชื่อถือ</li>
                     <li><i class='bx bx-check-circle'></i> รองรับทุกอุปกรณ์</li>
                     <li><i class='bx bx-check-circle'></i> หน้าเว็บสวย</li>
-                    <li><i class='bx bx-check-circle'></i> เอฟเฟกต์การใช้งานแบบพรีเมียม</li>
+                    <li><i class='bx bx-check-circle'></i> เอฟเฟกต์การใช้งานมีคุณภาพ</li>
                 </ul>
                 <a href="https://www.facebook.com/thana.bodi.784064/?locale=th_TH" target="_blank"
                     class="btn btn-block">ติดต่อสอบถามรายละเอียดผ่าน Facebook</a>
@@ -120,19 +124,49 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <h2 class="heading">ผลงาน<span>บางส่วน</span></h2>
-        <div class="portfolio-container reveal">
-            <div class="portfolio-card">
-                <div class="portfolio-box glass-effect">
-                    <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t1.15752-9/655028869_1522970479194740_5529891459135185084_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=znqYzZh_UzkQ7kNvwHgYzKH&_nc_oc=AdpUHuibJspSS7sjc5rmLJ8JfNLGgFE5qqJH6TN3FbSPAyhdjYHfuAWjZrBZ3ofDJNDJLTffEKpXGUg_PH1na8wR&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_ss=7a32e&oh=03_Q7cD4wFDOclCvAs7MepAsuOXeaZREjCf7AaPKrF9E14Og_pxMA&oe=69EB192C"
-                        alt="Portfolio 1">
+
+        <div class="portfolio-slider-wrapper reveal">
+            <!-- Left Arrow -->
+            <button class="portfolio-arrow left-arrow" id="port-prev" aria-label="Previous Portfolio"><i
+                    class='bx bx-chevron-left'></i></button>
+
+            <!-- Container that scrolls -->
+            <div class="portfolio-container" id="portfolio-scroll-container">
+
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-box glass-effect">
+                        <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t1.15752-9/655028869_1522970479194740_5529891459135185084_n.jpg?stp=dst-jpg_s552x414_tt6&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=znqYzZh_UzkQ7kNvwHgYzKH&_nc_oc=AdpUHuibJspSS7sjc5rmLJ8JfNLGgFE5qqJH6TN3FbSPAyhdjYHfuAWjZrBZ3ofDJNDJLTffEKpXGUg_PH1na8wR&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_ss=7a32e&oh=03_Q7cD4wFDOclCvAs7MepAsuOXeaZREjCf7AaPKrF9E14Og_pxMA&oe=69EB192C"
+                            alt="Portfolio 1">
+                    </div>
+                    <div class="portfolio-info glass-effect">
+                        <h4>ตัวอย่างหน้าเว็บไซต์</h4>
+                        <p>เว็บไซต์สร้างเซอร์ไพรส์ สร้างได้มากกว่า 132 รูปเเบบ</p>
+                        <a href="https://surprise-theta-sepia.vercel.app/" target="_blank"><i
+                                class='bx bx-link-external'></i>
+                            ดูเว็บไซต์</a>
+                    </div>
                 </div>
-                <div class="portfolio-info glass-effect">
-                    <h4>ตัวอย่างหน้าเว็บไซต์</h4>
-                    <p>เว็บไซต์สร้างเซอร์ไพรส์ สร้างได้มากกว่า 132 รูปเเบบ</p>
-                    <a href="https://surprise-theta-sepia.vercel.app/" target="_blank"><i class='bx bx-link-external'></i>
-                        ดูเว็บไซต์</a>
+
+                <!-- Card 2 (NEW) -->
+                <div class="portfolio-card">
+                    <div class="portfolio-box glass-effect">
+                        <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?q=80&w=2070&auto=format&fit=crop"
+                            alt="ครัวสุวรรณ ร้านอาหารไทยระดับพรีเมียม">
+                    </div>
+                    <div class="portfolio-info glass-effect">
+                        <h4>ครัวธนบดี</h4>
+                        <p>เว็บไซต์หน้าร้านอาหาร</p>
+                        <a href="https://foodcom-psi.vercel.app/" target="_blank"><i class='bx bx-link-external'></i>
+                            ดูเว็บไซต์</a>
+                    </div>
                 </div>
+
             </div>
+
+            <!-- Right Arrow -->
+            <button class="portfolio-arrow right-arrow" id="port-next" aria-label="Next Portfolio"><i
+                    class='bx bx-chevron-right'></i></button>
         </div>
     </section>
 
