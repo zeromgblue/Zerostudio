@@ -100,43 +100,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Portfolio Slider Logic (Scroll + Drag)
-const portContainer = document.getElementById('portfolio-scroll-container');
-const portPrev = document.getElementById('port-prev');
-const portNext = document.getElementById('port-next');
+// Portfolio Slider Logic (Carousel)
+document.addEventListener('DOMContentLoaded', () => {
+    const portCarouselInner = document.getElementById('port-carousel-inner');
+    const portSlides = document.querySelectorAll('.port-carousel-slide');
+    const portDots = document.querySelectorAll('.port-carousel-dot');
+    const portPrevBtn = document.getElementById('port-prev');
+    const portNextBtn = document.getElementById('port-next');
+    let portCurrentSlide = 0;
+    
+    if (portCarouselInner && portSlides.length > 0) {
+        // Set dynamic width
+        portCarouselInner.style.width = `${portSlides.length * 100}%`;
+        portSlides.forEach(slide => {
+            slide.style.width = `${100 / portSlides.length}%`;
+        });
 
-if (portContainer) {
-    portNext.addEventListener('click', () => {
-        portContainer.scrollBy({ left: portContainer.offsetWidth / 1.5, behavior: 'smooth' });
-    });
-    portPrev.addEventListener('click', () => {
-        portContainer.scrollBy({ left: -portContainer.offsetWidth / 1.5, behavior: 'smooth' });
-    });
+        const showPortSlide = (n) => {
+            portCurrentSlide = (n + portSlides.length) % portSlides.length;
+            portCarouselInner.style.transform = `translateX(-${portCurrentSlide * (100 / portSlides.length)}%)`;
+            
+            if(portDots.length > 0) {
+                portDots.forEach(dot => dot.classList.remove('active'));
+                if(portDots[portCurrentSlide]) {
+                    portDots[portCurrentSlide].classList.add('active');
+                }
+            }
+        };
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+        let portSlideInterval;
 
-    portContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - portContainer.offsetLeft;
-        scrollLeft = portContainer.scrollLeft;
-        // ปิด smooth scroll ตอนลากเพื่อให้ตามเมาส์ได้ทัน
-        portContainer.style.scrollBehavior = 'auto'; 
-    });
-    portContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-        portContainer.style.scrollBehavior = 'smooth';
-    });
-    portContainer.addEventListener('mouseup', () => {
-        isDown = false;
-        portContainer.style.scrollBehavior = 'smooth';
-    });
-    portContainer.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - portContainer.offsetLeft;
-        const walk = (x - startX) * 2; // ความเร็วในการลาก
-        portContainer.scrollLeft = scrollLeft - walk;
-    });
-}
+        const startPortSlideShow = () => {
+            portSlideInterval = setInterval(() => {
+                showPortSlide(portCurrentSlide + 1);
+            }, 3000); // 3 วินาทีตามความเหมาะสมไม่ช้าเกินไป
+        };
+
+        const resetPortSlideShow = () => {
+            clearInterval(portSlideInterval);
+            startPortSlideShow();
+        };
+
+        if (portNextBtn) portNextBtn.addEventListener('click', () => { showPortSlide(portCurrentSlide + 1); resetPortSlideShow(); });
+        if (portPrevBtn) portPrevBtn.addEventListener('click', () => { showPortSlide(portCurrentSlide - 1); resetPortSlideShow(); });
+
+        if(portDots.length > 0) {
+            portDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => { showPortSlide(index); resetPortSlideShow(); });
+            });
+        }
+        
+        // เริ่มต้นที่สไลด์แรกและการเลื่อนอัตโนมัติ
+        showPortSlide(0);
+        startPortSlideShow();
+    }
+});
